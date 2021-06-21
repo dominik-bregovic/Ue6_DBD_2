@@ -1,21 +1,19 @@
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Entity
-public class Player {
-    @Id
-    @Column
-    int playerId;
-    @Column
-    String name;
-    @Column
-    int age;
-    @Column
-    Team team;
+public class Player implements ISaveAndDelete{
+    @Id @GeneratedValue
+    @Column(name = "player_id", length = 11, nullable = false, unique = true)
+    private int playerId;
+    @Column(length = 40)
+    private String name;
+    @Column(length = 3)
+    private int age;
+    @ManyToOne
+    private Team team;
 
     public Player(){
 
@@ -55,4 +53,13 @@ public class Player {
         this.team = team;
     }
 
+    @Override
+    public boolean saveToDB() {
+        return false;
+    }
+
+    @Override
+    public void deleteFromDB() {
+
+    }
 }

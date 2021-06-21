@@ -20,7 +20,7 @@ public class HibernateSupport {
 	
 	private static void init() {
 		//TODO: specify path of the hibernate.cfg.xml file in the next line
-		String path = "C:\\Users\\domin\\IdeaProjects\\Datenbanken\\Ue6_DBD_2\\src\\hibernate.cfg.xml";
+		String path = "C:/Users/domin/IdeaProjects/Datenbanken/Ue6_DBD_2/src/hibernate.cfg.xml";
 		File configFile = new File(path);
 		Configuration configuration = new Configuration();
 			
@@ -39,14 +39,14 @@ public class HibernateSupport {
         } catch (Exception e) {
             System.err.println("Initial SessionFactory creation failed." + e);
             throw new ExceptionInInitializerError(e);
-        }  
+        }
 	}
 	
 	private static Session getCurrentSession() {
 		return sessionFactory.getCurrentSession();
 	}
 		
-	public static void beginTransaction() {getCurrentSession().beginTransaction(); }
+	public static void beginTransaction() { getCurrentSession().beginTransaction(); }
 		
 	public static void commitTransaction() {getCurrentSession().getTransaction().commit();}
 		

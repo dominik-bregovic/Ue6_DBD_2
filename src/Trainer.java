@@ -1,17 +1,15 @@
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
-public class Trainer {
-    @Id
-    @Column
-    int trainerId;
-    @Column
-    String name;
-    @Column
-    Team team;
+public class Trainer implements ISaveAndDelete{
+    @Id @GeneratedValue
+    @Column(name = "trainer_id", length = 11, nullable = false, unique = true)
+    private int trainerId;
+    @Column(length = 40)
+    private String name;
+    @OneToOne
+    private Team team;
 
     public Trainer(){
 
@@ -41,4 +39,13 @@ public class Trainer {
         this.team = team;
     }
 
+    @Override
+    public boolean saveToDB() {
+        return false;
+    }
+
+    @Override
+    public void deleteFromDB() {
+
+    }
 }
