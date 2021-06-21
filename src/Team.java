@@ -1,9 +1,18 @@
-import java.util.List;
 
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.List;
+@Entity
 public class Team {
+    @Id
+    @Column
     int teamId;
+    @Column
     String name;
     List<Player> playerList;
+    @Column
     Trainer trainer;
 
 

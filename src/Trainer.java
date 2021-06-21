@@ -1,6 +1,16 @@
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Trainer {
+    @Id
+    @Column
     int trainerId;
+    @Column
     String name;
+    @Column
     Team team;
 
     public Trainer(){

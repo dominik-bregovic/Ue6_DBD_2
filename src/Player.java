@@ -1,10 +1,20 @@
+
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+
 
 @Entity
 public class Player {
+    @Id
+    @Column
     int playerId;
+    @Column
     String name;
+    @Column
     int age;
+    @Column
     Team team;
 
     public Player(){
